@@ -1,0 +1,15 @@
+<record xmlns:mods="http://www.loc.gov/mods/v3"
+        xmlns:lc="http://api.lib.harvard.edu/v2/item">
+   <identifier>div00444c00002</identifier>
+   <source>MH:OASIS</source>
+   <title>"Book of common place," contains outlines of sermons and dates preached,
+         1764-1771</title>
+   <placeName/>
+   <publisher/>
+   <dateCreated>1764-1771 </dateCreated>
+   <uri>http://nrs.harvard.edu/urn-3:DIV.LIB:29399612</uri>
+   <coltitle>Relly, James, 1722?-1778. "Book of Common Place," 1764-1771.</coltitle>
+   <colname>Relly, James, 1722?-1778.</colname>
+   <coldate>1764-1771.</coldate>
+   <colid>div00444</colid>
+</record>

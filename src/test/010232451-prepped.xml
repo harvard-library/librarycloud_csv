@@ -1,0 +1,15 @@
+<record xmlns:mods="http://www.loc.gov/mods/v3"
+        xmlns:lc="http://api.lib.harvard.edu/v2/item">
+   <identifier>010232451</identifier>
+   <source>MH:ALEPH</source>
+   <title>Halifax in Nova Scotia</title>
+   <placeCode>nsc</placeCode>
+   <placeName>Nova Scotia [Nova Scotia</placeName>
+   <publisher>s.n.</publisher>
+   <dateIssued/>
+   <dateStart/>
+   <dateEnd/>
+   <issuance>monographic</issuance>
+   <uri>http://nrs.harvard.edu/urn-3:FHCL:1689551?buttons=y</uri>
+   <uri>http://nrs.harvard.edu/urn-3:FHCL:29737367</uri>
+</record>
