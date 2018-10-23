@@ -17,7 +17,7 @@
 		<xsl:apply-templates/>
 	</xsl:template>
 	
-	<xsl:template match="record[source='MH:ALEPH']">
+	<xsl:template match="record[source='MH:ALEPH']|record[source='MH:ALMA']">
 		<xsl:text>"</xsl:text>
 		<xsl:value-of select="identifier"/>	
 		<xsl:text>",</xsl:text>
