@@ -12,8 +12,8 @@ class CsvController {
         render(text: "source and setSpec required", contentType: "text/plain", encoding: "UTF-8")
         return
       }
-      if (source != "MH:OASIS" && source != "MH:ALEPH" && source != "MH:VIA") {
-        render(text: "only MH:ALEPH, MH:OASIS and MH:VIA sources currently supported", contentType: "text/plain", encoding: "UTF-8")
+      if (source != "MH:OASIS" && source != "MH:ALEPH" && source != "MH:VIA" && source != "MH:ALMA") {
+        render(text: "only MH:ALEPH, MH:ALMA, MH:OASIS and MH:VIA sources currently supported", contentType: "text/plain", encoding: "UTF-8")
         return
       }
       def lowersource = source.replace("MH:","").toLowerCase()
