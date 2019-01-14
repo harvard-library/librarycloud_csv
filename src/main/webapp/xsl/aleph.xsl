@@ -19,7 +19,7 @@
     <xsl:template match="mods:mods">
         <record>
             <xsl:apply-templates select="mods:recordInfo/mods:recordIdentifier"/>
-            <xsl:apply-templates select="mods:titleInfo[not(@*)]/mods:title"/>
+            <xsl:apply-templates select="mods:titleInfo[not(@type)][1]/mods:title"/>
             <xsl:choose>
                 <xsl:when test="mods:name/mods:role[1]/mods:roleTerm">
                     <xsl:apply-templates select="mods:name[mods:role[1]/mods:roleTerm]"/>
