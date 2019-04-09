@@ -38,7 +38,7 @@ class CsvController {
           startNum = 0
         else
           startNum = (i * 10)
-        def xmlUrlWPag = xmlUrl + "&start=" + startNum + "&limit=100"
+        def xmlUrlWPag = xmlUrl + "&start=" + startNum + "&limit=10"
         //println "xmlUrlWPag: " + xmlUrlWPag
         def xml = xmlUrlWPag.toURL().newReader('utf-8')
         def simpleXml = csvService.transformApiXml(xml, xslName)
