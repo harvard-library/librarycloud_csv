@@ -28,7 +28,7 @@ class CsvController {
         render(text: "No results found for source: " + source + ", setSpec: " + setSpec, contentType: "text/plain", encoding: "UTF-8")
         return
       }
-      int numPages = (Integer.parseInt(numFound) / 10) + 1
+      int numPages = (Integer.parseInt(numFound) / 100) + 1
       def xslName = csvService.getXslDir() + "/" + lowersource + '.xsl'
       def xslCsvName = csvService.getXslDir() + "/" + "xml2csv" + '.xsl'
       def csvText = ""
@@ -37,8 +37,8 @@ class CsvController {
         if( i == 0)
           startNum = 0
         else
-          startNum = (i * 10)
-        def xmlUrlWPag = xmlUrl + "&start=" + startNum + "&limit=10"
+          startNum = (i * 100)
+        def xmlUrlWPag = xmlUrl + "&start=" + startNum + "&limit=100"
         //println "xmlUrlWPag: " + xmlUrlWPag
         def xml = xmlUrlWPag.toURL().newReader('utf-8')
         def simpleXml = csvService.transformApiXml(xml, xslName)
