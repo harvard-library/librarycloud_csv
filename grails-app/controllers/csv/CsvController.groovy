@@ -19,7 +19,13 @@ class CsvController {
       def lowersource = source.replace("MH:","").toLowerCase()
       if (lowersource.equals("alma"))
         lowersource = "aleph"
-
+      def filename = ""
+      if (lowersource.equals("alma"))
+          filename = "HOLLIS"
+      if (lowersource.equals("oasis"))
+          filename = "Finding_Aids"
+      if (lowersource.equals("via"))
+          filename = "Images"
       def xmlUrl = csvService.getItemsUrl() + "?source=" + source + "&setSpec_exact=" + setSpec + "&sort=recordIdentifier"
       def csvHeader = csvService.getHeader(lowersource)
       def xmlForParse = xmlUrl.toURL().newReader('utf-8')
