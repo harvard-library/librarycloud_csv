@@ -20,7 +20,7 @@ class CsvController {
       if (lowersource.equals("alma"))
         lowersource = "aleph"
       def filename = ""
-      if (lowersource.equals("alma"))
+      if (lowersource.equals("aleph"))
           filename = "HOLLIS"
       if (lowersource.equals("oasis"))
           filename = "Finding_Aids"
