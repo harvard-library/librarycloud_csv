@@ -19,13 +19,13 @@ class CsvController {
       def lowersource = source.replace("MH:","").toLowerCase()
       if (lowersource.equals("alma"))
         lowersource = "aleph"
-      def filename = ""
-      if (lowersource.equals("aleph"))
-          filename = "HOLLIS"
-      if (lowersource.equals("oasis"))
-          filename = "Finding_Aids"
-      if (lowersource.equals("via"))
-          filename = "Images"
+      def filelabel = ""
+      if (source.equals(""))
+          filelabel = "HOLLIS"
+      if (source.equals("oasis"))
+          filelabel = "Finding_Aids"
+      if (source.equals("via"))
+          filelabel = "Images"
       def xmlUrl = csvService.getItemsUrl() + "?source=" + source + "&setSpec_exact=" + setSpec + "&sort=recordIdentifier"
       def csvHeader = csvService.getHeader(lowersource)
       def xmlForParse = xmlUrl.toURL().newReader('utf-8')
@@ -56,7 +56,7 @@ class CsvController {
       }	
 
       csvText = csvHeader + "\n" + csvText
-      response.setHeader("Content-disposition", "attachment; filename=" + setSpec + "_" + filename + ".csv")
+      response.setHeader("Content-disposition", "attachment; filename=" + setSpec + "_" + filelabel + ".csv")
       render(text: csvText, contentType: "text/csv", encoding: "UTF-8")
     }
 
