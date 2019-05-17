@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:mods="http://www.loc.gov/mods/v3"
     xmlns:lc="http://api.lib.harvard.edu/v2/item" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0">
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:HarvardDRS="http://hul.harvard.edu/ois/xml/ns/HarvardDRS" 
+    exclude-result-prefixes="xs"
+    version="2.0">
 
     <xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
     <!-- ignore -->
@@ -20,6 +23,8 @@
             <xsl:apply-templates select="mods:originInfo"/>
             <xsl:apply-templates select=".//mods:location/mods:url[@access = 'raw object']"/>
             <xsl:apply-templates select="mods:relatedItem[1]"/>
+            <xsl:apply-templates select="mods:extension/HarvardDRS:DRSMetadata"/>
+            <xsl:apply-templates select=".//mods:location/mods:url[@access = 'preview']"/>
         </record>
     </xsl:template>
 
@@ -97,6 +102,12 @@
         </uri>
     </xsl:template>
 
+    <xsl:template match="mods:url[@access = 'preview']">
+        <preview>
+            <xsl:value-of select="."/>
+        </preview>
+    </xsl:template>
+    
     <xsl:template match="mods:relatedItem">
         <relatedItem>
             <xsl:value-of select="mods:titleInfo/mods:title"/>
@@ -104,6 +115,16 @@
         <relationship>
             <xsl:value-of select="@type"/>
         </relationship>
+    </xsl:template>
+    
+    <xsl:template match="HarvardDRS:DRSMetadata">
+        <xsl:apply-templates select="HarvardDRS:accessFlag"/>
+    </xsl:template>
+    
+    <xsl:template match="HarvardDRS:accessFlag">
+        <accessFlag>
+            <xsl:value-of select="."/>
+        </accessFlag>
     </xsl:template>
 
 </xsl:stylesheet>

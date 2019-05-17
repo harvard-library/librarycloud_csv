@@ -21,11 +21,11 @@ class CsvService {
     def getHeader(source) {
       def header = ""
       if (source.equals("aleph")) 
-        header = "\"HOLLIS #\",\"Title\",\"Type\",\"PlaceCode\",\"PubPlace\",\"Publisher\",\"SingleDate\",\"DateStart\",\"DateEnd\",\"Name\",\"NameRole\",\"NameDates\",\"URI\""
+        header = "\"HOLLIS ID\",\"Title\",\"PlaceCode\",\"United States?\",\"Place\",\"Publisher\",\"Transcribed Date\",\"Coded Date 1\",\"Coded Date 2\",\"Name\",\"Name Role\",\"Name Dates\",\"Digital Object Link\",\"Access Flag\",\"Thumbnail\",\"Collection Record?\""
       if (source.equals("via")) 
-        header = "\"VIA #\",\"Title\",\"Type\",\"PlaceName\",\"DateCreated\",\"Name\",\"NameRole\",\"NameDates\",\"URI\",\"RelatedItem\",\"Relationship\""
+        header = "\"Image ID\",\"Title\",\"Origin Place\",\"Date Created\",\"Name\",\"Name Role\",\"Name Dates\",\"Digital Object Link\",\"Related Item\",\"Relationship\",\"Access Flag\",\"Thumbnail\""
       if (source.equals("oasis")) 
-        header = "\"Item - OASIS #\",\"Item - Title\",\"Item - DateCreated\",\"Collection - Title\",\"Collection - Name\",\"Collection - Date\",\"Collection - OASIS #\",\"URI\""
+        header = "\"Finding Aid Component ID\",\"Component Title\",\"Component Date Created\",\"Collection Title\",\"Collection Name\",\"Collection Date\",\"Finding Aid ID\",\"Digital Object Link\",\"Access Flag\",\"Thumbnail\""
       return header
     }
 

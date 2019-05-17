@@ -24,11 +24,14 @@
 		<xsl:text>"</xsl:text>
 		<xsl:value-of select="replace(title,'&quot;','&quot;&quot;')"/>	
 		<xsl:text>",</xsl:text>
-		<xsl:text>"</xsl:text>
+		<!--<xsl:text>"</xsl:text>
 		<xsl:value-of select="issuance"/>	
-		<xsl:text>",</xsl:text>
+		<xsl:text>",</xsl:text>-->
 		<xsl:text>"</xsl:text>
 		<xsl:value-of select="placeCode"/>	
+		<xsl:text>",</xsl:text>
+		<xsl:text>"</xsl:text>
+		<xsl:value-of select="isUS"/>	
 		<xsl:text>",</xsl:text>
 		<xsl:text>"</xsl:text>
 		<xsl:value-of select="placeName"/>	
@@ -55,7 +58,16 @@
 		<xsl:value-of select="date"/>	
 		<xsl:text>",</xsl:text>
 		<xsl:text>"</xsl:text>
-		<xsl:apply-templates select="uri"/>
+		<xsl:value-of select="uri"/>	
+		<xsl:text>",</xsl:text>
+		<xsl:text>"</xsl:text>
+		<xsl:value-of select="accessFlag"/>	
+		<xsl:text>",</xsl:text>
+		<xsl:text>"</xsl:text>
+		<xsl:value-of select="preview"/>	
+		<xsl:text>",</xsl:text>
+		<xsl:text>"</xsl:text>
+		<xsl:apply-templates select="isCollection"/>
 		<!--<xsl:value-of select="uri"/>-->
 		<xsl:text>"</xsl:text>
 		<xsl:text>&#xA;</xsl:text>
@@ -73,9 +85,9 @@
 		<xsl:text>"</xsl:text>
 		<xsl:value-of select="replace(title,'&quot;','&quot;&quot;')"/>	
 		<xsl:text>",</xsl:text>
-		<xsl:text>"</xsl:text>
+		<!--<xsl:text>"</xsl:text>
 		<xsl:value-of select="type"/>	
-		<xsl:text>",</xsl:text>
+		<xsl:text>",</xsl:text>-->
 		<xsl:text>"</xsl:text>
 		<xsl:value-of select="placeName"/>	
 		<xsl:text>",</xsl:text>
@@ -100,6 +112,12 @@
 		<xsl:text>",</xsl:text>
 		<xsl:text>"</xsl:text>
 		<xsl:value-of select="relationship"/>
+		<xsl:text>",</xsl:text>
+		<xsl:text>"</xsl:text>
+		<xsl:value-of select="accessFlag"/>
+		<xsl:text>",</xsl:text>
+		<xsl:text>"</xsl:text>
+		<xsl:value-of select="preview"/>
 		<xsl:text>"</xsl:text>
 		<xsl:text>&#xA;</xsl:text>
 	</xsl:template>
@@ -134,6 +152,12 @@
 		<xsl:text>"</xsl:text>
 		<xsl:apply-templates select="uri"/>
 		<!--<xsl:value-of select="uri"/>-->
+		<xsl:text>",</xsl:text>
+		<xsl:text>"</xsl:text>
+		<xsl:value-of select="accessFlag"/>
+		<xsl:text>",</xsl:text>
+		<xsl:text>"</xsl:text>
+		<xsl:value-of select="preview"/>
 		<xsl:text>"</xsl:text>
 		<xsl:text>&#xA;</xsl:text>
 	</xsl:template>
