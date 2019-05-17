@@ -20,11 +20,11 @@ class CsvController {
       if (lowersource.equals("alma"))
         lowersource = "aleph"
       def filelabel = ""
-      if (source.equals(""))
+      if (source.equals("MH:ALMA"))
           filelabel = "HOLLIS"
-      if (source.equals("oasis"))
+      if (source.equals("MH:OASIS"))
           filelabel = "Finding_Aids"
-      if (source.equals("via"))
+      if (source.equals("MH:VIA"))
           filelabel = "Images"
       def xmlUrl = csvService.getItemsUrl() + "?source=" + source + "&setSpec_exact=" + setSpec + "&sort=recordIdentifier"
       def csvHeader = csvService.getHeader(lowersource)
