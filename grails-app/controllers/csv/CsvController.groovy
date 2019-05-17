@@ -56,7 +56,7 @@ class CsvController {
       }	
 
       csvText = csvHeader + "\n" + csvText
-      response.setHeader("Content-disposition", "attachment; filename=" + setSpec + "_" + lowersource + ".csv")
+      response.setHeader("Content-disposition", "attachment; filename=" + setSpec + "_" + filename + ".csv")
       render(text: csvText, contentType: "text/csv", encoding: "UTF-8")
     }
 
