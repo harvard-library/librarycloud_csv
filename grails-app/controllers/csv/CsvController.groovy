@@ -17,9 +17,10 @@ class CsvController {
         return
       }
       def lowersource = source.replace("MH:","").toLowerCase()
-      if (lowersource.equals("alma"))
+      if (lowersource.equals("alma")) {
         lowersource = "aleph"
-      def filelabel = ""
+      }
+      def filelabel
       if (source.equals("MH:ALMA"))
           filelabel = "HOLLIS"
       if (source.equals("MH:OASIS"))
