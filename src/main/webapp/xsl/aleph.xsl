@@ -154,7 +154,7 @@
     <xsl:template match="mods:typeOfResource">
         <isCollection>
             <xsl:choose>
-                <xsl:when test="./collection = 'yes'">
+                <xsl:when test="./@collection = 'yes'">
                     <xsl:text>Collection record</xsl:text>
                 </xsl:when>
                 <xsl:otherwise>
