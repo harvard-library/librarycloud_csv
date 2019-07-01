@@ -71,7 +71,7 @@
         </placeCode>
         <isUS>
             <xsl:choose>
-                <xsl:when test="ends-with(mods:place/mods:placeTerm[@type = 'code'], 'u')">
+                <xsl:when test="ends-with(mods:place/mods:placeTerm[@type = 'code'], 'u') and string-length(mods:place/mods:placeTerm[@type = 'code']) = 3">
                     <xsl:text>United States</xsl:text>
                 </xsl:when>
                 <xsl:otherwise>
