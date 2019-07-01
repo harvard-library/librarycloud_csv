@@ -1,4 +1,4 @@
-Librarycloud OAI-PMH Data Provider
+Librarycloud CSV delimited output
 ============
 
 Description
