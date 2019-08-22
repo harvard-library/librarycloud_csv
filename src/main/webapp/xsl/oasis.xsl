@@ -18,7 +18,7 @@
     <xsl:template match="mods:mods">
         <record>
             <xsl:apply-templates select="mods:recordInfo/mods:recordIdentifier"/>
-            <xsl:apply-templates select="mods:titleInfo[not(@*)]/mods:title"/>
+            <xsl:apply-templates select="mods:titleInfo[not(@*)][1]/mods:title"/>
             <xsl:apply-templates select="(mods:name)[1]"/>
             <xsl:apply-templates select="mods:originInfo"/>
             <xsl:apply-templates select="mods:typeOfResource"/>
