@@ -2,14 +2,15 @@
 <xsl:stylesheet xmlns:mods="http://www.loc.gov/mods/v3"
     xmlns:lc="http://api.lib.harvard.edu/v2/item"
     xmlns:HarvardDRS="http://hul.harvard.edu/ois/xml/ns/HarvardDRS"
+    xmlns:sets="http://hul.harvard.edu/ois/xml/ns/sets"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema"
     exclude-result-prefixes="xs" version="2.0">
 
     <xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
     <!-- ignore -->
-    <xsl:template match="lc:pagination"/>
 
-    <xsl:template match="lc:results">
+
+    <xsl:template match="lc:pagination"/><xsl:template match="lc:results">
         <alephRecs>
             <xsl:apply-templates/>
         </alephRecs>
@@ -31,6 +32,7 @@
             <xsl:apply-templates select="mods:location/mods:url[@access = 'preview']"/>
             <xsl:apply-templates select="mods:extension/HarvardDRS:DRSMetadata"/>
             <xsl:apply-templates select="mods:typeOfResource"/>
+            <xsl:apply-templates select="mods:extension/sets:sets"/>
             <!--<xsl:apply-templates select="mods:identifier[@type='uri']"/>-->
         </record>
     </xsl:template>
@@ -162,6 +164,18 @@
                 </xsl:otherwise>
             </xsl:choose>
         </isCollection>
+    </xsl:template>
+    
+    <xsl:template match="sets:sets">
+        <sets>
+            <xsl:apply-templates select="sets:set"/>
+        </sets>
+    </xsl:template>
+    <xsl:template match="sets:set">
+        <xsl:apply-templates select="sets:setName"/>
+    </xsl:template>
+    <xsl:template match="sets:setName">
+        <setname><xsl:value-of select="."/></setname>
     </xsl:template>
 
     <!--   <xsl:template match="mods:identifier">

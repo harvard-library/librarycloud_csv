@@ -67,8 +67,10 @@
 		<xsl:value-of select="preview"/>	
 		<xsl:text>",</xsl:text>
 		<xsl:text>"</xsl:text>
-		<xsl:apply-templates select="isCollection"/>
-		<!--<xsl:value-of select="uri"/>-->
+		<xsl:value-of select="isCollection"/>
+		<xsl:text>",</xsl:text>
+		<xsl:text>"</xsl:text>
+		<xsl:apply-templates select="sets"/>
 		<xsl:text>"</xsl:text>
 		<xsl:text>&#xA;</xsl:text>
 	</xsl:template>
@@ -118,6 +120,9 @@
 		<xsl:text>",</xsl:text>
 		<xsl:text>"</xsl:text>
 		<xsl:value-of select="preview"/>
+		<xsl:text>",</xsl:text>
+		<xsl:text>"</xsl:text>
+		<xsl:apply-templates select="sets"/>
 		<xsl:text>"</xsl:text>
 		<xsl:text>&#xA;</xsl:text>
 	</xsl:template>
@@ -158,6 +163,9 @@
 		<xsl:text>",</xsl:text>
 		<xsl:text>"</xsl:text>
 		<xsl:value-of select="preview"/>
+		<xsl:text>",</xsl:text>
+		<xsl:text>"</xsl:text>
+		<xsl:apply-templates select="sets"/>
 		<xsl:text>"</xsl:text>
 		<xsl:text>&#xA;</xsl:text>
 	</xsl:template>
@@ -169,5 +177,14 @@
 		</xsl:if>
 	</xsl:template>
 
+	<xsl:template match="sets">
+		<xsl:apply-templates select="setname"/>
+	</xsl:template>
+	<xsl:template match="setname">
+		<xsl:value-of select="."/>
+		<xsl:if test="not(position()=last())">
+			<xsl:text>, </xsl:text>
+		</xsl:if>
+	</xsl:template>
 
 </xsl:stylesheet>

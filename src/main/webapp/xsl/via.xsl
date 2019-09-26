@@ -2,7 +2,8 @@
 <xsl:stylesheet xmlns:mods="http://www.loc.gov/mods/v3"
     xmlns:lc="http://api.lib.harvard.edu/v2/item" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:HarvardDRS="http://hul.harvard.edu/ois/xml/ns/HarvardDRS" 
+    xmlns:HarvardDRS="http://hul.harvard.edu/ois/xml/ns/HarvardDRS"
+    xmlns:sets="http://hul.harvard.edu/ois/xml/ns/sets"
     exclude-result-prefixes="xs"
     version="2.0">
 
@@ -25,6 +26,7 @@
             <xsl:apply-templates select="mods:relatedItem[1]"/>
             <xsl:apply-templates select="mods:extension/HarvardDRS:DRSMetadata"/>
             <xsl:apply-templates select=".//mods:location/mods:url[@access = 'preview']"/>
+            <xsl:apply-templates select="mods:extension/sets:sets"/>
         </record>
     </xsl:template>
 
@@ -125,6 +127,18 @@
         <accessFlag>
             <xsl:value-of select="."/>
         </accessFlag>
+    </xsl:template>
+    
+    <xsl:template match="sets:sets">
+        <sets>
+            <xsl:apply-templates select="sets:set"/>
+        </sets>
+    </xsl:template>
+    <xsl:template match="sets:set">
+        <xsl:apply-templates select="sets:setName"/>
+    </xsl:template>
+    <xsl:template match="sets:setName">
+        <setname><xsl:value-of select="."/></setname>
     </xsl:template>
 
 </xsl:stylesheet>
